@@ -1,59 +1,69 @@
 # InvoiceFlow
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+A modern, professional invoice management application built with Angular 20. Create, manage, and track invoices with a beautiful, glass-morphism inspired user interface.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Dashboard Overview** - View key business metrics and recent invoices
+- **Invoice Creation** - Comprehensive form for generating professional invoices
+- **Modern UI** - Beautiful glass-morphism design with responsive layout
+- **Business Ready** - Support for Polish tax requirements (NIP fields)
 
-```bash
-ng serve
-```
+## Quick Start
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Prerequisites
 
-## Code scaffolding
+- Node.js (compatible with Angular 20)
+- npm package manager
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Installation
 
 ```bash
-ng generate --help
+# Install dependencies
+npm install
+
+# Start development server
+npm start
 ```
 
-## Building
+Navigate to `http://localhost:4200/` to view the application.
 
-To build the project run:
+### Available Scripts
 
-```bash
-ng build
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run unit tests
+- `npm run watch` - Build with file watching
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── feature/
+│   │   ├── dashboard/          # Dashboard with metrics
+│   │   └── invoice/
+│   │       └── invoice-form/   # Invoice creation form
+│   └── layout/                 # Shared layout components
+└── styles.css                  # Global styles and design system
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Technology Stack
 
-## Running unit tests
+- **Angular 20** - Latest version with modern features
+- **TypeScript** - Type-safe development
+- **CSS3** - Custom design system with glass morphism
+- **Responsive Design** - Mobile-first approach
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Development
 
-```bash
-ng test
-```
+This project uses modern Angular patterns including:
 
-## Running end-to-end tests
+- Standalone components
+- Angular signals for state management
+- Zoneless change detection
+- Component-based architecture
 
-For end-to-end (e2e) testing, run:
+## License
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is private and proprietary.
