@@ -29,7 +29,25 @@ src/
 │   │   │   ├── dashboard.html   # Dashboard template
 │   │   │   └── dashboard.css    # Dashboard styles
 │   │   └── invoice/             # Invoice feature
-│   │       └── invoice-form/    # Invoice form sub-feature
+│   │       ├── company-data/    # Reusable company data component
+│   │       │   ├── company-data.ts
+│   │       │   ├── company-data.html
+│   │       │   ├── company-data.css
+│   │       │   └── company-data.spec.ts
+│   │       ├── invoice-items/   # Reusable invoice items component
+│   │       │   ├── invoice-items.ts
+│   │       │   ├── invoice-items.html
+│   │       │   ├── invoice-items.css
+│   │       │   └── invoice-items.spec.ts
+│   │       └── invoice-form/    # Main invoice form
+│   │           ├── invoice-details/    # Invoice details component
+│   │           │   ├── invoice-details.ts
+│   │           │   ├── invoice-details.html
+│   │           │   └── invoice-details.css
+│   │           ├── invoice-totals/     # Invoice totals component
+│   │           │   ├── invoice-totals.ts
+│   │           │   ├── invoice-totals.html
+│   │           │   └── invoice-totals.css
 │   │           ├── invoice-form.ts
 │   │           ├── invoice-form.html
 │   │           └── invoice-form.css
@@ -58,17 +76,23 @@ src/
   - Success Rate: 94.2% (+2.1% improvement)
 - **Recent Invoices Panel**: List of recent invoices with status indicators
 
-### 2. Invoice Creation Form
+### 2. Modular Invoice Creation System
 
-- **Invoice Details**: Number, issue date, sale date, payment method, due date, currency
-- **Seller Information**: Company/individual name, tax ID (NIP), address, bank account
-- **Buyer Information**: Company/individual name, tax ID, address
-- **Invoice Items Table**: Dynamic table for adding/removing line items with:
-  - Service/product description
-  - Legal basis
-  - Quantity and unit
-  - Unit price and total calculation
-- **Totals Section**: Automatic calculation of subtotal, tax, total amount, paid amount, and remaining balance
+- **Invoice Details Component**: Number, issue date, sale date, payment method, due date, currency
+- **Company Data Component**: Reusable component for both seller and buyer information
+  - Company/individual name, tax ID (NIP), address
+  - Optional bank account field for seller
+  - Reactive forms with validation
+- **Invoice Items Component**: Dynamic table for managing line items
+  - Service/product description with validation
+  - Legal basis field
+  - Quantity, unit, and unit price with numeric validation
+  - Automatic total calculation per item
+  - Add/remove items functionality
+- **Invoice Totals Component**: Financial calculations and summary
+  - Subtotal, tax, and total amount calculations
+  - Paid amount input
+  - Remaining balance calculation
 - **Additional Notes**: Optional notes field
 - **Form Actions**: Save as draft, preview, and generate invoice buttons
 
@@ -139,28 +163,39 @@ src/
 ### Implemented Features
 
 ✅ Dashboard with metrics and recent invoices  
-✅ Invoice creation form with comprehensive fields  
+✅ Modular invoice creation system with reusable components  
+✅ Reactive forms with comprehensive validation  
 ✅ Responsive design system  
 ✅ Modern UI with glass morphism effects  
-✅ Routing between dashboard and invoice form
+✅ Routing between dashboard and invoice form  
+✅ Component-based architecture with modern Angular patterns  
 
 ### Technical Implementation
 
-✅ Angular 20 with modern patterns  
-✅ TypeScript with strict typing  
+✅ Angular 20 with latest features (signals, input/output functions, effects)  
+✅ TypeScript with strict typing and interfaces  
+✅ Reactive forms with FormGroup, FormArray, and FormControl  
 ✅ CSS custom properties for theming  
-✅ Component-based architecture  
-✅ Responsive grid system
+✅ Modular component architecture  
+✅ Responsive grid system  
+✅ Modern control flow syntax (@if, @for)  
+✅ Signal-based state management  
+
+### Component Architecture
+
+✅ **Company Data Component**: Reusable for seller/buyer with reactive forms  
+✅ **Invoice Items Component**: Dynamic table with FormArray and validation  
+✅ **Invoice Details Component**: Basic structure (needs implementation)  
+✅ **Invoice Totals Component**: Basic structure (needs implementation)  
 
 ### Areas for Enhancement
 
 - **Backend Integration**: No API calls or data persistence
-- **Form Validation**: Basic HTML validation only
+- **Invoice Details/Totals**: Components created but need full implementation
 - **Invoice Management**: No edit, delete, or view functionality
 - **User Authentication**: No login/logout system
-- **Data Models**: No TypeScript interfaces for data structures
 - **State Management**: Could benefit from more sophisticated state management
-- **Testing**: Test files exist but no test implementations
+- **Testing**: Test files exist but need test implementations
 
 ## Development Environment
 

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CompanyData, CompanyDataModel } from '../company-data/company-data';
 import { InvoiceItems, InvoiceItem } from '../invoice-items/invoice-items';
+import { InvoiceDetails } from "./invoice-details/invoice-details";
+import { InvoiceTotals } from "./invoice-totals/invoice-totals";
 
 @Component({
   selector: 'app-invoice-form',
-  imports: [CompanyData, InvoiceItems],
+  imports: [CompanyData, InvoiceItems, InvoiceDetails, InvoiceTotals],
   templateUrl: './invoice-form.html',
   styleUrl: './invoice-form.css'
 })

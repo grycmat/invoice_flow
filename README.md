@@ -5,7 +5,8 @@ A modern, professional invoice management application built with Angular 20. Cre
 ## Features
 
 - **Dashboard Overview** - View key business metrics and recent invoices
-- **Invoice Creation** - Comprehensive form for generating professional invoices
+- **Modular Invoice Creation** - Component-based form system with reusable parts
+- **Reactive Forms** - Advanced form validation and state management
 - **Modern UI** - Beautiful glass-morphism design with responsive layout
 - **Business Ready** - Support for Polish tax requirements (NIP fields)
 
@@ -42,8 +43,12 @@ src/
 ├── app/
 │   ├── feature/
 │   │   ├── dashboard/          # Dashboard with metrics
-│   │   └── invoice/
-│   │       └── invoice-form/   # Invoice creation form
+│   │   └── invoice/            # Invoice feature modules
+│   │       ├── company-data/   # Reusable company data component
+│   │       ├── invoice-items/  # Dynamic invoice items table
+│   │       └── invoice-form/   # Main invoice form
+│   │           ├── invoice-details/  # Invoice details component
+│   │           └── invoice-totals/   # Invoice totals component
 │   └── layout/                 # Shared layout components
 └── styles.css                  # Global styles and design system
 ```
@@ -61,8 +66,11 @@ This project uses modern Angular patterns including:
 
 - Standalone components
 - Angular signals for state management
+- Reactive forms with FormGroup, FormArray, and FormControl
+- Modern control flow syntax (@if, @for)
 - Zoneless change detection
-- Component-based architecture
+- Modular component architecture
+- Type-safe interfaces and validation
 
 ## License
 
