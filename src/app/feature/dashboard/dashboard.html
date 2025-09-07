@@ -1,0 +1,141 @@
+<div class="container">
+    <header class="header">
+        <div class="logo">InvoiceFlow</div>
+        <div class="user-info">
+            <span>Welcome back, Alex</span>
+            <div class="user-avatar">A</div>
+        </div>
+    </header>
+
+    <div class="main-grid">
+        <div class="welcome-section">
+            <h1 class="welcome-title">Dashboard Overview</h1>
+            <p class="welcome-subtitle">Manage your invoices with precision and style. Track payments, monitor client
+                activity, and grow your business efficiently.</p>
+            <button class="primary-button" routerLink="/invoice/create">Create New Invoice</button>
+        </div>
+
+        <div class="quick-stats">
+            <h3 class="stats-title">Quick Summary</h3>
+            <div class="stat-item">
+                <span class="stat-label">Monthly Revenue</span>
+                <span class="stat-value positive">$28,450</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Pending Amount</span>
+                <span class="stat-value warning">$6,230</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Overdue Items</span>
+                <span class="stat-value danger">4</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Active Clients</span>
+                <span class="stat-value">42</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics-grid">
+        <div class="metric-card" routerLink="/analytics/revenue">
+            <div class="metric-header">
+                <div class="metric-title">Total Revenue</div>
+                <div class="metric-icon">💰</div>
+            </div>
+            <div class="metric-value">$84,720</div>
+            <div class="metric-change">+18.2% this month</div>
+        </div>
+
+        <div class="metric-card" routerLink="/invoices">
+            <div class="metric-header">
+                <div class="metric-title">Total Invoices</div>
+                <div class="metric-icon">📊</div>
+            </div>
+            <div class="metric-value">247</div>
+            <div class="metric-change">+12 this week</div>
+        </div>
+
+        <div class="metric-card" routerLink="/clients">
+            <div class="metric-header">
+                <div class="metric-title">Active Clients</div>
+                <div class="metric-icon">👥</div>
+            </div>
+            <div class="metric-value">42</div>
+            <div class="metric-change">+3 new clients</div>
+        </div>
+
+        <div class="metric-card" routerLink="/analytics">
+            <div class="metric-header">
+                <div class="metric-title">Success Rate</div>
+                <div class="metric-icon">⚡</div>
+            </div>
+            <div class="metric-value">94.2%</div>
+            <div class="metric-change">+2.1% improvement</div>
+        </div>
+    </div>
+
+    <div class="invoices-panel">
+        <div class="panel-header">
+            <h2 class="panel-title">Recent Invoices</h2>
+            <button class="view-all-btn" routerLink="/invoices">View All</button>
+        </div>
+        <div class="invoice-list">
+            <div class="invoice-item" routerLink="/invoice/INV-2024-001">
+                <div class="invoice-row">
+                    <div class="invoice-number">#INV-2024-001</div>
+                    <div class="invoice-amount">$3,240.00</div>
+                </div>
+                <div class="invoice-meta">
+                    <span>TechCorp Solutions</span>
+                    <div class="status-badge status-paid">Paid</div>
+                </div>
+            </div>
+
+            <div class="invoice-item" routerLink="/invoice/INV-2024-002">
+                <div class="invoice-row">
+                    <div class="invoice-number">#INV-2024-002</div>
+                    <div class="invoice-amount">$1,850.00</div>
+                </div>
+                <div class="invoice-meta">
+                    <span>Design Studio Pro</span>
+                    <div class="status-badge status-pending">Pending</div>
+                </div>
+            </div>
+
+            <div class="invoice-item" routerLink="/invoice/INV-2024-003">
+                <div class="invoice-row">
+                    <div class="invoice-number">#INV-2024-003</div>
+                    <div class="invoice-amount">$4,120.00</div>
+                </div>
+                <div class="invoice-meta">
+                    <span>Marketing Dynamics</span>
+                    <div class="status-badge status-paid">Paid</div>
+                </div>
+            </div>
+
+            <div class="invoice-item" routerLink="/invoice/INV-2024-004">
+                <div class="invoice-row">
+                    <div class="invoice-number">#INV-2024-004</div>
+                    <div class="invoice-amount">$2,680.00</div>
+                </div>
+                <div class="invoice-meta">
+                    <span>Global Enterprises</span>
+                    <div class="status-badge status-overdue">Overdue</div>
+                </div>
+            </div>
+
+            <div class="invoice-item" routerLink="/invoice/INV-2024-005">
+                <div class="invoice-row">
+                    <div class="invoice-number">#INV-2024-005</div>
+                    <div class="invoice-amount">$1,490.00</div>
+                </div>
+                <div class="invoice-meta">
+                    <span>Creative Agency</span>
+                    <div class="status-badge status-pending">Pending</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="floating-action" routerLink="/invoice/create">+</button>

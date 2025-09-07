@@ -1,0 +1,200 @@
+<div class="container">
+    <header class="header">
+        <div class="logo">InvoiceFlow</div>
+        <a href="#" class="back-btn">
+            <span>←</span>
+            <span>Back to Dashboard</span>
+        </a>
+    </header>
+
+    <div class="form-card">
+        <h1 class="form-title">Create New Invoice</h1>
+        <p class="form-subtitle">Generate professional invoices with ease</p>
+
+        <form id="invoiceForm">
+            <!-- Invoice Details -->
+            <div class="form-section">
+                <h2 class="section-title">Invoice Details</h2>
+                <div class="form-grid form-grid-3">
+                    <div class="form-group">
+                        <label class="form-label">Invoice Number</label>
+                        <input type="text" class="form-input" id="invoiceNumber" placeholder="e.g., 15/2025" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Issue Date</label>
+                        <input type="date" class="form-input" id="issueDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Sale Date</label>
+                        <input type="date" class="form-input" id="saleDate" required>
+                    </div>
+                </div>
+                <div class="form-grid form-grid-3">
+                    <div class="form-group">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-input form-select" id="paymentMethod" required>
+                            <option value="">Select method</option>
+                            <option value="transfer">Bank Transfer</option>
+                            <option value="cash">Cash</option>
+                            <option value="card">Card</option>
+                            <option value="check">Check</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Payment Due Date</label>
+                        <input type="date" class="form-input" id="dueDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Currency</label>
+                        <select class="form-input form-select" id="currency">
+                            <option value="PLN">PLN</option>
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seller Information -->
+            <div class="form-section">
+                <h2 class="section-title">Seller Information</h2>
+                <div class="form-grid form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Company/Individual Name</label>
+                        <input type="text" class="form-input" id="sellerName" placeholder="Company or Individual Name"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tax ID (NIP)</label>
+                        <input type="text" class="form-input" id="sellerNip" placeholder="Tax Identification Number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-input form-textarea" id="sellerAddress"
+                        placeholder="Full address including city and postal code" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Bank Account</label>
+                    <input type="text" class="form-input" id="bankAccount" placeholder="Bank account number (optional)">
+                </div>
+            </div>
+
+            <!-- Buyer Information -->
+            <div class="form-section">
+                <h2 class="section-title">Buyer Information</h2>
+                <div class="form-grid form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Company/Individual Name</label>
+                        <input type="text" class="form-input" id="buyerName" placeholder="Buyer name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tax ID (NIP)</label>
+                        <input type="text" class="form-input" id="buyerNip" placeholder="Buyer Tax ID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-input form-textarea" id="buyerAddress" placeholder="Buyer full address"
+                        required></textarea>
+                </div>
+            </div>
+
+            <!-- Invoice Items -->
+            <div class="form-section">
+                <h2 class="section-title">Invoice Items</h2>
+                <div class="items-section">
+                    <table class="items-table" id="itemsTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">No.</th>
+                                <th>Service/Product Description</th>
+                                <th style="width: 150px;">Legal Basis</th>
+                                <th style="width: 80px;">Quantity</th>
+                                <th style="width: 80px;">Unit</th>
+                                <th style="width: 120px;">Unit Price</th>
+                                <th style="width: 120px;">Total</th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsTableBody">
+                            <tr class="item-row">
+                                <td>1</td>
+                                <td>
+                                    <input type="text" class="item-input" placeholder="Service or product description"
+                                        data-field="description" required>
+                                </td>
+                                <td>
+                                    <input type="text" class="item-input" placeholder="e.g., Art. 43 ust. 1 pkt 18a"
+                                        data-field="legalBasis">
+                                </td>
+                                <td>
+                                    <input type="number" class="item-input" value="1" min="0.01" step="0.01"
+                                        data-field="quantity" required>
+                                </td>
+                                <td>
+                                    <input type="text" class="item-input" value="pcs" data-field="unit" required>
+                                </td>
+                                <td>
+                                    <input type="number" class="item-input" min="0" step="0.01" placeholder="0.00"
+                                        data-field="unitPrice" required>
+                                </td>
+                                <td>
+                                    <input type="number" class="item-input" readonly data-field="total" tabindex="-1">
+                                </td>
+                                <td>
+                                    <button type="button" class="remove-item" onclick="removeItem(this)">×</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-item-btn" onclick="addItem()">
+                        <span>+</span>
+                        <span>Add New Item</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Totals -->
+            <div class="form-section">
+                <div class="totals-section">
+                    <div class="totals-grid">
+                        <span class="total-label">Subtotal:</span>
+                        <span class="total-value" id="subtotal">0.00 PLN</span>
+
+                        <span class="total-label">Tax:</span>
+                        <span class="total-value" id="tax">0.00 PLN</span>
+
+                        <span class="total-label total-final">Total Amount:</span>
+                        <span class="total-value total-final" id="totalAmount">0.00 PLN</span>
+
+                        <span class="total-label">Paid:</span>
+                        <input type="number" class="form-input" id="paidAmount" value="0" min="0" step="0.01"
+                            style="text-align: right;">
+
+                        <span class="total-label">Remaining:</span>
+                        <span class="total-value" id="remaining">0.00 PLN</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-section">
+                <h2 class="section-title">Additional Information</h2>
+                <div class="form-group">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-input form-textarea" id="notes"
+                        placeholder="Additional notes or comments (optional)" rows="4"></textarea>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="saveDraft()">Save as Draft</button>
+                <button type="button" class="btn btn-secondary" onclick="previewInvoice()">Preview</button>
+                <button type="submit" class="btn btn-primary">Generate Invoice</button>
+            </div>
+        </form>
+    </div>
+</div>
