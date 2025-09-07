@@ -1,0 +1,74 @@
+<div class="form-section">
+    <h2 class="section-title">Invoice Items</h2>
+    <div class="items-section">
+        <form [formGroup]="itemsForm">
+            <table class="items-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">No.</th>
+                        <th>Service/Product Description</th>
+                        <th style="width: 150px;">Legal Basis</th>
+                        <th style="width: 80px;">Quantity</th>
+                        <th style="width: 80px;">Unit</th>
+                        <th style="width: 120px;">Unit Price</th>
+                        <th style="width: 120px;">Total</th>
+                        <th style="width: 50px;"></th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="items">
+                    @for (item of itemsArray.controls; track $index) {
+                    <tr class="item-row" [formGroupName]="$index">
+                        <td>{{ $index + 1 }}</td>
+                        <td>
+                            <input type="text" class="item-input" formControlName="description"
+                                placeholder="Service or product description">
+                            @if (getItemControl($index, 'description').invalid && getItemControl($index,
+                            'description').touched) {
+                            <div class="error-message">Description is required</div>
+                            }
+                        </td>
+                        <td>
+                            <input type="text" class="item-input" formControlName="legalBasis"
+                                placeholder="e.g., Art. 43 ust. 1 pkt 18a">
+                        </td>
+                        <td>
+                            <input type="number" class="item-input" formControlName="quantity" min="0.01" step="0.01">
+                            @if (getItemControl($index, 'quantity').invalid && getItemControl($index,
+                            'quantity').touched) {
+                            <div class="error-message">Invalid quantity</div>
+                            }
+                        </td>
+                        <td>
+                            <input type="text" class="item-input" formControlName="unit">
+                            @if (getItemControl($index, 'unit').invalid && getItemControl($index, 'unit').touched) {
+                            <div class="error-message">Unit is required</div>
+                            }
+                        </td>
+                        <td>
+                            <input type="number" class="item-input" formControlName="unitPrice" min="0" step="0.01"
+                                placeholder="0.00">
+                            @if (getItemControl($index, 'unitPrice').invalid && getItemControl($index,
+                            'unitPrice').touched) {
+                            <div class="error-message">Invalid price</div>
+                            }
+                        </td>
+                        <td>
+                            <input type="number" class="item-input" formControlName="total" readonly tabindex="-1">
+                        </td>
+                        <td>
+                            <button type="button" class="remove-item" (click)="removeItem($index)"
+                                [disabled]="itemsArray.length === 1">
+                                ×
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+        <button type="button" class="add-item-btn" (click)="addItem()">
+            <span>+</span>
+            <span>Add New Item</span>
+        </button>
+    </div>
+</div>

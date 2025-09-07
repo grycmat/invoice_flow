@@ -56,105 +56,16 @@
                 </div>
             </div>
 
-            <!-- Seller Information -->
-            <div class="form-section">
-                <h2 class="section-title">Seller Information</h2>
-                <div class="form-grid form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Company/Individual Name</label>
-                        <input type="text" class="form-input" id="sellerName" placeholder="Company or Individual Name"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tax ID (NIP)</label>
-                        <input type="text" class="form-input" id="sellerNip" placeholder="Tax Identification Number">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Address</label>
-                    <textarea class="form-input form-textarea" id="sellerAddress"
-                        placeholder="Full address including city and postal code" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Bank Account</label>
-                    <input type="text" class="form-input" id="bankAccount" placeholder="Bank account number (optional)">
-                </div>
-            </div>
+            <app-company-data title="Seller Information" [showBankAccount]="true" [companyData]="sellerData"
+                (companyDataChange)="onSellerDataChange($event)">
+            </app-company-data>
 
-            <!-- Buyer Information -->
-            <div class="form-section">
-                <h2 class="section-title">Buyer Information</h2>
-                <div class="form-grid form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Company/Individual Name</label>
-                        <input type="text" class="form-input" id="buyerName" placeholder="Buyer name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tax ID (NIP)</label>
-                        <input type="text" class="form-input" id="buyerNip" placeholder="Buyer Tax ID">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Address</label>
-                    <textarea class="form-input form-textarea" id="buyerAddress" placeholder="Buyer full address"
-                        required></textarea>
-                </div>
-            </div>
+            <app-company-data title="Buyer Information" [showBankAccount]="false" [companyData]="buyerData"
+                (companyDataChange)="onBuyerDataChange($event)">
+            </app-company-data>
 
-            <!-- Invoice Items -->
-            <div class="form-section">
-                <h2 class="section-title">Invoice Items</h2>
-                <div class="items-section">
-                    <table class="items-table" id="itemsTable">
-                        <thead>
-                            <tr>
-                                <th style="width: 50px;">No.</th>
-                                <th>Service/Product Description</th>
-                                <th style="width: 150px;">Legal Basis</th>
-                                <th style="width: 80px;">Quantity</th>
-                                <th style="width: 80px;">Unit</th>
-                                <th style="width: 120px;">Unit Price</th>
-                                <th style="width: 120px;">Total</th>
-                                <th style="width: 50px;"></th>
-                            </tr>
-                        </thead>
-                        <tbody id="itemsTableBody">
-                            <tr class="item-row">
-                                <td>1</td>
-                                <td>
-                                    <input type="text" class="item-input" placeholder="Service or product description"
-                                        data-field="description" required>
-                                </td>
-                                <td>
-                                    <input type="text" class="item-input" placeholder="e.g., Art. 43 ust. 1 pkt 18a"
-                                        data-field="legalBasis">
-                                </td>
-                                <td>
-                                    <input type="number" class="item-input" value="1" min="0.01" step="0.01"
-                                        data-field="quantity" required>
-                                </td>
-                                <td>
-                                    <input type="text" class="item-input" value="pcs" data-field="unit" required>
-                                </td>
-                                <td>
-                                    <input type="number" class="item-input" min="0" step="0.01" placeholder="0.00"
-                                        data-field="unitPrice" required>
-                                </td>
-                                <td>
-                                    <input type="number" class="item-input" readonly data-field="total" tabindex="-1">
-                                </td>
-                                <td>
-                                    <button type="button" class="remove-item" onclick="removeItem(this)">×</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button type="button" class="add-item-btn" onclick="addItem()">
-                        <span>+</span>
-                        <span>Add New Item</span>
-                    </button>
-                </div>
-            </div>
+            <app-invoice-items [items]="invoiceItems" (itemsChange)="onItemsChange($event)">
+            </app-invoice-items>
 
             <!-- Totals -->
             <div class="form-section">

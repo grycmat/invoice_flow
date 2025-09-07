@@ -1,0 +1,33 @@
+<div class="form-section">
+    <h2 class="section-title">{{ title() }}</h2>
+    <form [formGroup]="companyForm">
+        <div class="form-grid form-grid-2">
+            <div class="form-group">
+                <label class="form-label">Company/Individual Name</label>
+                <input type="text" class="form-input" formControlName="name" placeholder="Company or Individual Name">
+                @if (nameControl.invalid && nameControl.touched) {
+                <div class="error-message">Company name is required</div>
+                }
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tax ID (NIP)</label>
+                <input type="text" class="form-input" formControlName="taxId" placeholder="Tax Identification Number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Address</label>
+            <textarea class="form-input form-textarea" formControlName="address"
+                placeholder="Full address including city and postal code"></textarea>
+            @if (addressControl.invalid && addressControl.touched) {
+            <div class="error-message">Address is required</div>
+            }
+        </div>
+        @if (showBankAccount()) {
+        <div class="form-group">
+            <label class="form-label">Bank Account</label>
+            <input type="text" class="form-input" formControlName="bankAccount"
+                placeholder="Bank account number (optional)">
+        </div>
+        }
+    </form>
+</div>
